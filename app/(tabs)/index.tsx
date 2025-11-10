@@ -1,5 +1,6 @@
 import { ButtonCard } from '@/components/button-card';
 import { Header } from '@/components/header';
+import ModalScreen from '@/components/modal';
 import Icon from '@expo/vector-icons/FontAwesome6';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
@@ -7,9 +8,6 @@ import Octicons from '@expo/vector-icons/Octicons';
 import { BottomSheetModal } from '@gorhom/bottom-sheet';
 import React, { useCallback, useState } from 'react';
 import { ScrollView, Text, View } from 'react-native';
-import ModalScreen from '@/components/modal';
-import { router } from 'expo-router';
-import CustomCarrossel from '@/components/custom-carrossel';
 
 export default function HomeScreen() {
     const [selected, setSelected] = useState(false);
@@ -159,7 +157,7 @@ export default function HomeScreen() {
                                 <Text className="text-lg font-roboto-medium">
                                     Meus cartões
                                 </Text>
-                                <Text className="text-lg font-roboto-medium ">
+                                <Text className="text-lg text-red-600 font-roboto-medium ">
                                     TESTE OTA 4
                                 </Text>
                             </View>
