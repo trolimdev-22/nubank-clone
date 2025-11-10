@@ -31,7 +31,7 @@ export default function HomeScreen() {
 
     return (
         <View className="bg-nubank">
-            <ScrollView overScrollMode='auto'>
+            <ScrollView overScrollMode="auto">
                 <Header
                     icon={selected ? 'eye-slash' : 'eye'}
                     onPress={handleSelect}
@@ -159,8 +159,8 @@ export default function HomeScreen() {
                                 <Text className="text-lg font-roboto-medium">
                                     Meus cartões
                                 </Text>
-                                <CustomCarrossel/>
                             </View>
+                            <CustomCarrossel />
                         </ButtonCard>
                     </View>
                     <View className="w-screen border-t-2 border-gray-400/20">
