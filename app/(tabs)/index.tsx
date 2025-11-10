@@ -159,8 +159,10 @@ export default function HomeScreen() {
                                 <Text className="text-lg font-roboto-medium">
                                     Meus cartões
                                 </Text>
+                                <Text className="text-lg font-roboto-medium ">
+                                    TESTE OTA 4
+                                </Text>
                             </View>
-                            <CustomCarrossel />
                         </ButtonCard>
                     </View>
                     <View className="w-screen border-t-2 border-gray-400/20">
