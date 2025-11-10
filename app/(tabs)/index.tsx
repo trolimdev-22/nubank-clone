@@ -9,6 +9,7 @@ import React, { useCallback, useState } from 'react';
 import { ScrollView, Text, View } from 'react-native';
 import ModalScreen from '@/components/modal';
 import { router } from 'expo-router';
+import CustomCarrossel from '@/components/custom-carrossel';
 
 export default function HomeScreen() {
     const [selected, setSelected] = useState(false);
@@ -158,6 +159,7 @@ export default function HomeScreen() {
                                 <Text className="text-lg font-roboto-medium">
                                     Meus cartões
                                 </Text>
+                                <CustomCarrossel/>
                             </View>
                         </ButtonCard>
                     </View>
