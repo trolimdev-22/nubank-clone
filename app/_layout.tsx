@@ -1,10 +1,8 @@
 import { BottomSheetModalProvider } from '@gorhom/bottom-sheet';
 import { useFonts } from 'expo-font';
 import { SplashScreen, Stack } from 'expo-router';
-import { StatusBar } from 'expo-status-bar';
 import React, { useEffect } from 'react';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
-import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import '../global.css';
 
 SplashScreen.preventAutoHideAsync();
@@ -31,28 +29,15 @@ export default function RootLayout() {
     return (
         <GestureHandlerRootView style={{ flex: 1 }}>
             <BottomSheetModalProvider>
-                <SafeAreaProvider>
-                    <SafeAreaView className="bg-nubank" edges={['top']} />
-
-                    <Stack
-                        screenOptions={{
-                            headerShown: false,
-                            statusBarStyle: 'light',
-                        }}
-                    >
-                        <Stack.Screen name="(tabs)" />
-                        {/* <Stack.Screen name="menu" />
-                        <Stack.Screen
-                            name="modal-teste"
-                            options={{ headerShown: false }}
-                        />
-                        <Stack.Screen
-                            name="modal-test"
-                            options={{ headerShown: false }}
-                        /> */}
-                    </Stack>
-                </SafeAreaProvider>
-                <StatusBar style="light" />
+                <Stack
+                    screenOptions={{
+                        headerShown: false,
+                    }}
+                >
+                    <Stack.Screen name="(tabs)" />
+                    <Stack.Screen name="(auth)" />
+                    <Stack.Screen name="welcome" />
+                </Stack>
             </BottomSheetModalProvider>
         </GestureHandlerRootView>
     );

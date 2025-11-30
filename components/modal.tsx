@@ -11,7 +11,7 @@ import {
     Text,
     View,
 } from 'react-native';
-import Menucard from './menu-card';
+import Menucard from './MenuCard';
 
 type Props = ModalProps & {
     animationType: string;
@@ -19,10 +19,6 @@ type Props = ModalProps & {
     onRequestClose: () => void;
 };
 
-// const data = Array.from({ length: 50 }, (_, index) => ({
-//     id: index + 1,
-//     title: `Item ${index + 1}`,
-// }));
 export default function ModalScreen({
     animationType,
     visible,
@@ -30,7 +26,6 @@ export default function ModalScreen({
     ...props
 }: Props) {
     return (
-        // <App {...props} />
         <Modal
             animationType={animationType}
             visible={visible}
@@ -96,18 +91,4 @@ export default function ModalScreen({
             </View>
         </Modal>
     );
-}
-
-{
-    /* {data.map((item) => (
-                        <View
-                            key={item.id}
-                            className="flex-row items-center justify-between mt-4"
-                        >
-                            <Text className="text-[18px] font-roboto-medium">
-                                {item.title}
-                            </Text>
-                            <Icon name="chevron-right" size={16} color="black" />
-                        </View>
-                    ))} */
 }

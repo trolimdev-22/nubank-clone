@@ -9,6 +9,9 @@ dist/
 web-build/
 expo-env.d.ts
 
+# VScode
+.vscode/
+
 # Native
 .kotlin/
 *.orig.*
@@ -41,3 +44,10 @@ app-example
 # generated native folders
 /ios
 /android
+
+# idea 
+.idea/
+*.apk
+*.aab
+ 
+teste/

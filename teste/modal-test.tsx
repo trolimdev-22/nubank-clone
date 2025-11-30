@@ -1,4 +1,4 @@
-import Menucard from '@/components/menu-card';
+import Menucard from '@/components/MenuCard';
 import AntDesign from '@expo/vector-icons/AntDesign';
 import Icon from '@expo/vector-icons/FontAwesome6';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
@@ -7,7 +7,6 @@ import {
     BottomSheetBackdrop,
     BottomSheetModal,
     BottomSheetScrollView,
-    BottomSheetView,
 } from '@gorhom/bottom-sheet';
 import { BottomSheetDefaultBackdropProps } from '@gorhom/bottom-sheet/lib/typescript/components/bottomSheetBackdrop/types';
 import React, { forwardRef, useCallback } from 'react';
@@ -50,32 +49,31 @@ const StickFooter = () => {
     );
 };
 
- const ModalTest = forwardRef<BottomSheetModal>((_, ref) => {
-    const renderBackdrop = useCallback(
-        (
-            props: React.JSX.IntrinsicAttributes &
-                BottomSheetDefaultBackdropProps
-        ) => (
-            <BottomSheetBackdrop
-                {...props}
-                appearsOnIndex={0}
-                disappearsOnIndex={-1}
-                style={[props.style, { backgroundColor: 'rgba(0, 0, 0, 0.8)' }]}
-                pressBehavior="close"
-            />
-        ),
-        []
-    );
+export const ModalTest = forwardRef<BottomSheetModal>((_, ref) => {
+    // const renderBackdrop = useCallback(
+    //     (
+    //         props: React.JSX.IntrinsicAttributes &
+    //             BottomSheetDefaultBackdropProps
+    //     ) => (
+    //         <BottomSheetBackdrop
+    //             {...props}
+    //             appearsOnIndex={0}
+    //             disappearsOnIndex={-1}
+    //             style={[props.style, { backgroundColor: 'rgba(0, 0, 0, 0.8)' }]}
+    //             pressBehavior="close"
+    //         />
+    //     ),
+    //     []
+    // );
     return (
         <BottomSheetModal
             ref={ref}
             snapPoints={['85%']}
             index={0}
-            backdropComponent={renderBackdrop}
+            // backdropComponent={renderBackdrop}
             handleComponent={() => <MenuModal modalRef={ref} />}
             enableOverDrag={true}
             enableContentPanningGesture={false}
-            footerComponent={StickFooter}
         >
             <BottomSheetScrollView
                 className="mx-8"
@@ -98,9 +96,7 @@ const StickFooter = () => {
                     <Text>ÁREA DE TESTE ROLÁVEL</Text>
                 </View> */}
             </BottomSheetScrollView>
-            
+            <StickFooter />
         </BottomSheetModal>
     );
 });
-
-export default ModalTest;
