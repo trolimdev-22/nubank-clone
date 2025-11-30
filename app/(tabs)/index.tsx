@@ -15,6 +15,13 @@ export default function HomeScreen() {
     const [selected, setSelected] = useState(false);
     const insets = useSafeAreaInsets();
 
+    const formatCurrency = (value: number) => {
+        return new Intl.NumberFormat('pt-BR', {
+            style: 'currency',
+            currency: 'BRL',
+        }).format(value);
+    };
+
     const handleSelect = () => {
         setSelected(!selected);
     };
@@ -85,7 +92,7 @@ export default function HomeScreen() {
                                         </View>
                                     ) : (
                                         <Text className="text-[18px] font-roboto-medium">
-                                            R$ 1.000000,00
+                                            {formatCurrency(1000000)}
                                         </Text>
                                     )}
                                 </View>
@@ -137,7 +144,7 @@ export default function HomeScreen() {
 
                                     <View className="bottom-5 justify-center items-center rounded bg-nubank">
                                         <Text className="px-1 text-white text-[14px] font-roboto-medium">
-                                            R$150.000
+                                            {formatCurrency(500000)}
                                         </Text>
                                     </View>
 
@@ -219,7 +226,7 @@ export default function HomeScreen() {
                                             </View>
                                         ) : (
                                             <Text className="pt-1 text-[16px] font-roboto-semiBold">
-                                                R$ 20.0000,00
+                                                {formatCurrency(20000)}
                                             </Text>
                                         )}
                                     </View>
@@ -254,7 +261,7 @@ export default function HomeScreen() {
                                             </View>
                                         ) : (
                                             <Text className="pt-1 text-[16px] font-roboto-semiBold">
-                                                R$ 150.0000,00
+                                                {formatCurrency(150000)}
                                             </Text>
                                         )}
                                     </View>

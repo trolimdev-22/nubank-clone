@@ -1,6 +1,5 @@
 import Icon from '@expo/vector-icons/FontAwesome6';
 import { BottomSheetModal } from '@gorhom/bottom-sheet';
-import { router } from 'expo-router';
 import React, { useCallback } from 'react';
 import { Alert, Pressable, Text, View } from 'react-native';
 import { ButtonIcon } from './ButtonIon';
@@ -18,7 +17,7 @@ export function Header({ onPress, icon }: Props) {
     const handlePresentModalPress = useCallback(() => {
         bottomSheetModalRef.current?.present();
     }, []);
-    
+
     return (
         <View className="bg-nubank">
             <View className="flex-row justify-between p-4">
@@ -36,7 +35,7 @@ export function Header({ onPress, icon }: Props) {
                 <View className="flex-row px-8 py-4 justify-between">
                     <View>
                         <Text className="font-roboto-medium text-xl text-white ">
-                            Olá, Thiago
+                            Olá,
                         </Text>
                         <Text className="font-roboto text-base text-white mt-1">
                             Você é cliente{' '}

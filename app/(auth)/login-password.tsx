@@ -113,9 +113,13 @@ export default function LoginPasswordScreen() {
                             />
                         </Pressable>
                     </View>
-                    <View className={`${Platform.OS === 'ios' ? 'top-10' : 'top-6'}`}>
+                    <View
+                        className={`${Platform.OS === 'ios' ? 'top-10' : 'top-6'}`}
+                    >
                         <View className="h-[2px] bg-gray-300" />
-                        <Text className={`font-roboto-medium text-gray-800 ${Platform.OS === 'ios' ? 'text-[16px]' : 'text-[12px]'} top-1`}>
+                        <Text
+                            className={`font-roboto-medium text-gray-800 ${Platform.OS === 'ios' ? 'text-[16px]' : 'text-[12px]'} top-1`}
+                        >
                             Essa é aquela senha que você cadastrou quando criou
                             a sua conta.
                         </Text>
@@ -133,7 +137,7 @@ export default function LoginPasswordScreen() {
                     ]}
                     className="items-end pb-8 pr-6"
                 >
-                    {password.length > 8 ? (
+                    {password.length > 7 ? (
                         <TouchableOpacity
                             onPress={handleAppPasswordLogin}
                             className="w-16 h-16 rounded-full bg-nubank items-center justify-center"
