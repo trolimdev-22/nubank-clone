@@ -7,9 +7,9 @@ Este projeto foi desenvolvido para dominar o ecossistema **Expo** e as bibliotec
 ## 📱 Screenshots
 
 <div style="display: flex; flex-direction: row; gap: 10px;">
-  <img src="caminho/para/sua/imagem-login.jpg" width="200" />
-  <img src="caminho/para/sua/imagem-home.jpg" width="200" />
-  <img src="caminho/para/sua/imagem-menu.jpg" width="200" />
+  
+  https://github.com/user-attachments/assets/56b1644a-94c9-4df9-a4d1-36d107c80ef1
+
 </div>
 
 ## 🚀 Tecnologias Utilizadas
