@@ -1,50 +1,65 @@
-# Welcome to your Expo app 👋
+# Nubank Clone - React Native 🎆
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Um clone de alta fidelidade da interface do Nubank, focado em **arquitetura escalável**, **animações complexas** e **autenticação biométrica**.
 
-## Get started
+Este projeto foi desenvolvido para dominar o ecossistema **Expo** e as bibliotecas mais modernas do React Native.
 
-1. Install dependencies
+## 📱 Screenshots
 
-   ```bash
-   npm install
-   ```
+<div style="display: flex; flex-direction: row; gap: 10px;">
+  <img src="caminho/para/sua/imagem-login.jpg" width="200" />
+  <img src="caminho/para/sua/imagem-home.jpg" width="200" />
+  <img src="caminho/para/sua/imagem-menu.jpg" width="200" />
+</div>
 
-2. Start the app
+## 🚀 Tecnologias Utilizadas
 
-   ```bash
-   npx expo start
-   ```
+* **Core:** React Native, Expo (SDK 52)
+* **Navegação:** [Expo Router](https://docs.expo.dev/router/introduction/) (File-based routing)
+* **Estilização:** [NativeWind](https://www.nativewind.dev/) (TailwindCSS para React Native)
+* **Gerenciamento de Estado:** [Zustand](https://github.com/pmndrs/zustand) (com persistência local)
+* **Animações & Gestos:** * [React Native Reanimated 4](https://docs.swmansion.com/react-native-reanimated/)
+    * [React Native Gesture Handler](https://docs.swmansion.com/react-native-gesture-handler/)
+* **Componentes Avançados:**
+    * [@gorhom/bottom-sheet](https://ui.gorhom.dev/components/bottom-sheet) (Menu deslizante profissional)
+    * [Expo Blur](https://docs.expo.dev/versions/latest/sdk/blur/) (Efeito de vidro na TabBar)
+* **Segurança & Hardware:**
+    * `expo-local-authentication` (Biometria / FaceID)
+    * `expo-secure-store` (Armazenamento criptografado de tokens)
+    * `async-storage` (Persistência de dados simples)
 
-In the output, you'll find options to open the app in a
+## ✨ Funcionalidades Principais
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+### 🔐 Autenticação (Fluxo Completo)
+* **Simulação de Backend:** Cadastro de senha salvo localmente (`AsyncStorage`) e token de sessão seguro (`SecureStore`).
+* **Biometria:** Login rápido com digital/FaceID, validando o token de sessão armazenado.
+* **Persistência:** O app "lembra" do usuário (Auto-login) ao reabrir.
+* **Logout:** Limpeza segura de tokens e redirecionamento para fluxo de senha.
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+### 🎨 UI/UX Avançada
+* **Custom TabBar:** Barra de navegação flutuante com efeito **Glassmorphism** (Blur) e indicador animado que segue a aba ativa.
+* **Infinite Carousel:** Carrossel customizado construído com `FlatList`, com paginação animada e autoplay inteligente (pausa ao sair da tela).
+* **Smart Bottom Sheet:** Menu inferior com rodapé fixo (`Sticky Footer`), gestos isolados e snap points precisos.
+* **Animations:** Botão flutuante que acompanha a altura do teclado suavemente (`useAnimatedKeyboard`).
 
-## Get a fresh project
+## 🔧 Como Rodar
 
-When you're ready, run:
+1.  Clone o repositório:
+    ```bash
+    git clone [https://github.com/trolimdev-22/nubank-clone.git](https://github.com/trolimdev-22/nubank-clone.git)
+    ```
+2.  Instale as dependências:
+    ```bash
+    npm install
+    ```
+3.  Como este projeto usa bibliotecas nativas (Biometria, Reanimated), recomenda-se usar uma **Development Build**:
+    ```bash
+    eas build -p android --profile development
+    ```
+4.  Inicie o servidor:
+    ```bash
+    npx expo start --dev-client
+    ```
 
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+---
+Desenvolvido por [Thiago Rolim](https://github.com/trolimdev-22)
