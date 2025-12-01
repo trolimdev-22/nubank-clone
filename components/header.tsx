@@ -1,3 +1,4 @@
+import { useBalanceStore } from '@/store/balanceStore';
 import Icon from '@expo/vector-icons/FontAwesome6';
 import { BottomSheetModal } from '@gorhom/bottom-sheet';
 import React, { useCallback } from 'react';
@@ -6,13 +7,9 @@ import { ButtonIcon } from './ButtonIon';
 import { ModalScreen } from './ModalScreen';
 import { ProfileIcon } from './ProfileIcon';
 
-type Props = {
-    icon: string;
-    onPress: () => void;
-};
-
-export function Header({ onPress, icon }: Props) {
+export function Header() {
     const bottomSheetModalRef = React.useRef<BottomSheetModal>(null);
+    const { isBalanceVisible, toggleVisible } = useBalanceStore();
 
     const handlePresentModalPress = useCallback(() => {
         bottomSheetModalRef.current?.present();
@@ -23,7 +20,10 @@ export function Header({ onPress, icon }: Props) {
             <View className="flex-row justify-between p-4">
                 <ProfileIcon />
                 <View className="flex-row">
-                    <ButtonIcon icon={icon} onPress={onPress} />
+                    <ButtonIcon
+                        icon={isBalanceVisible ? 'eye-slash' : 'eye'}
+                        onPress={toggleVisible}
+                    />
 
                     <ButtonIcon icon="bars" onPress={handlePresentModalPress} />
                 </View>

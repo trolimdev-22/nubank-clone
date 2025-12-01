@@ -2,28 +2,25 @@ import { ButtonCard } from '@/components/ButtonCard';
 import Card from '@/components/Card';
 import CustomCarrossel from '@/components/CustomCarrossel';
 import { Header } from '@/components/Header';
+import { useBalanceStore } from '@/store/balanceStore';
 import Icon from '@expo/vector-icons/FontAwesome6';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import Octicons from '@expo/vector-icons/Octicons';
 import { StatusBar } from 'expo-status-bar';
-import React, { useState } from 'react';
+import React from 'react';
 import { Platform, ScrollView, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 export default function HomeScreen() {
-    const [selected, setSelected] = useState(false);
     const insets = useSafeAreaInsets();
+    const isBalanceVisible = useBalanceStore((state) => state.isBalanceVisible);
 
     const formatCurrency = (value: number) => {
         return new Intl.NumberFormat('pt-BR', {
             style: 'currency',
             currency: 'BRL',
         }).format(value);
-    };
-
-    const handleSelect = () => {
-        setSelected(!selected);
     };
 
     return (
@@ -46,7 +43,7 @@ export default function HomeScreen() {
             <ScrollView
                 overScrollMode="always"
                 showsVerticalScrollIndicator={false}
-                contentInsetAdjustmentBehavior="always"
+                contentInsetAdjustmentBehavior="never"
                 bounces={true}
                 scrollEventThrottle={16}
                 style={{ backgroundColor: 'transparent' }}
@@ -58,10 +55,7 @@ export default function HomeScreen() {
                             Platform.OS === 'ios' ? 10 : insets.top - 15,
                     }}
                 >
-                    <Header
-                        icon={selected ? 'eye-slash' : 'eye'}
-                        onPress={handleSelect}
-                    />
+                    <Header />
 
                     <View className="bg-gray-200">
                         <View className="py-2">
@@ -71,24 +65,12 @@ export default function HomeScreen() {
                                 icon="chevron-right"
                             >
                                 <View className="h-8 justify-center">
-                                    {selected ? (
-                                        <View className="flex-row mt-1">
-                                            <Octicons
-                                                name="dot-fill"
-                                                size={12}
-                                            />
-                                            <Octicons
-                                                name="dot-fill"
-                                                size={12}
-                                            />
-                                            <Octicons
-                                                name="dot-fill"
-                                                size={12}
-                                            />
-                                            <Octicons
-                                                name="dot-fill"
-                                                size={12}
-                                            />
+                                    {isBalanceVisible ? (
+                                        <View className="flex-row gap-[2px] mt-1">
+                                            <View className="w-[6px] h-[6px] rounded-full bg-black" />
+                                            <View className="w-[6px] h-[6px] rounded-full bg-black" />
+                                            <View className="w-[6px] h-[6px] rounded-full bg-black" />
+                                            <View className="w-[6px] h-[6px] rounded-full bg-black" />
                                         </View>
                                     ) : (
                                         <Text className="text-[18px] font-roboto-medium">
@@ -103,10 +85,11 @@ export default function HomeScreen() {
                             bounces={true}
                             overScrollMode="always"
                             horizontal={true}
+                            scrollEventThrottle={16}
                             showsHorizontalScrollIndicator={false}
                         >
-                            <View className="flex-row px-8 gap-4 -mb-2">
-                                <View className="items-center">
+                            <View className="flex-row px-8 -mb-2">
+                                <View className="items-center w-[100px]">
                                     <View className="w-[80px] h-[80px] rounded-full bg-gray-300 justify-center items-center">
                                         <Icon
                                             name="pix"
@@ -120,7 +103,7 @@ export default function HomeScreen() {
                                     </Text>
                                 </View>
 
-                                <View className="items-center">
+                                <View className="items-center w-[100px]">
                                     <View className="w-[80px] h-[80px] rounded-full bg-gray-300 justify-center items-center">
                                         <Icon
                                             name="barcode"
@@ -133,7 +116,7 @@ export default function HomeScreen() {
                                     </Text>
                                 </View>
 
-                                <View className="items-center">
+                                <View className="items-center w-[100px]">
                                     <View className="w-[80px] h-[80px] rounded-full bg-gray-300 justify-center items-center">
                                         <MaterialIcons
                                             name="attach-money"
@@ -142,18 +125,29 @@ export default function HomeScreen() {
                                         />
                                     </View>
 
-                                    <View className="bottom-5 justify-center items-center rounded bg-nubank">
-                                        <Text className="px-1 text-white text-[14px] font-roboto-medium">
-                                            {formatCurrency(500000)}
+                                    <View
+                                        className={`bottom-6 h-[24px] px-2 justify-center items-center rounded bg-nubank`}
+                                    >
+                                        <Text className="text-white text-[14px] font-roboto-medium">
+                                            {isBalanceVisible ? (
+                                                <View className="flex-row gap-[2px] mt-1 px-2">
+                                                    <View className="w-[5px] h-[5px] rounded-full bg-white" />
+                                                    <View className="w-[5px] h-[5px] rounded-full bg-white" />
+                                                    <View className="w-[5px] h-[5px] rounded-full bg-white" />
+                                                    <View className="w-[5px] h-[5px] rounded-full bg-white" />
+                                                </View>
+                                            ) : (
+                                                formatCurrency(500000)
+                                            )}
                                         </Text>
                                     </View>
 
-                                    <Text className="text-center font-roboto-semiBold text-lg bottom-4">
+                                    <Text className="text-center font-roboto-semiBold text-lg bottom-6">
                                         Pegar {'\n'} Emprestado
                                     </Text>
                                 </View>
 
-                                <View className="items-center">
+                                <View className="items-center w-[100px]">
                                     <View className="w-[80px] h-[80px] rounded-full bg-gray-300 justify-center items-center">
                                         <Octicons
                                             name="device-mobile"
@@ -165,7 +159,7 @@ export default function HomeScreen() {
                                         Recarga de {'\n'} Celular
                                     </Text>
                                 </View>
-                                <View className="items-center">
+                                <View className="items-center w-[100px]">
                                     <View className="w-[80px] h-[80px] rounded-full bg-gray-300 justify-center items-center">
                                         <MaterialIcons
                                             name="savings"
@@ -205,24 +199,12 @@ export default function HomeScreen() {
                                         Fatura Atual
                                     </Text>
                                     <View className="h-8 justify-center">
-                                        {selected ? (
-                                            <View className="flex-row mt-1">
-                                                <Octicons
-                                                    name="dot-fill"
-                                                    size={14}
-                                                />
-                                                <Octicons
-                                                    name="dot-fill"
-                                                    size={14}
-                                                />
-                                                <Octicons
-                                                    name="dot-fill"
-                                                    size={14}
-                                                />
-                                                <Octicons
-                                                    name="dot-fill"
-                                                    size={14}
-                                                />
+                                        {isBalanceVisible ? (
+                                            <View className="flex-row gap-[2px] mt-1">
+                                                <View className="w-[6px] h-[6px] rounded-full bg-black" />
+                                                <View className="w-[6px] h-[6px] rounded-full bg-black" />
+                                                <View className="w-[6px] h-[6px] rounded-full bg-black" />
+                                                <View className="w-[6px] h-[6px] rounded-full bg-black" />
                                             </View>
                                         ) : (
                                             <Text className="pt-1 text-[16px] font-roboto-semiBold">
@@ -240,24 +222,12 @@ export default function HomeScreen() {
                                         Valor disponível de até
                                     </Text>
                                     <View className="h-8 justify-center">
-                                        {selected ? (
-                                            <View className="flex-row mt-1">
-                                                <Octicons
-                                                    name="dot-fill"
-                                                    size={14}
-                                                />
-                                                <Octicons
-                                                    name="dot-fill"
-                                                    size={14}
-                                                />
-                                                <Octicons
-                                                    name="dot-fill"
-                                                    size={14}
-                                                />
-                                                <Octicons
-                                                    name="dot-fill"
-                                                    size={14}
-                                                />
+                                        {isBalanceVisible ? (
+                                            <View className="flex-row gap-[2px] mt-1">
+                                                <View className="w-[6px] h-[6px] rounded-full bg-black" />
+                                                <View className="w-[6px] h-[6px] rounded-full bg-black" />
+                                                <View className="w-[6px] h-[6px] rounded-full bg-black" />
+                                                <View className="w-[6px] h-[6px] rounded-full bg-black" />
                                             </View>
                                         ) : (
                                             <Text className="pt-1 text-[16px] font-roboto-semiBold">

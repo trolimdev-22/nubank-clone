@@ -88,9 +88,9 @@ export default function Card() {
                             </Text>
                         </View>
                         <View
-                            className={`bg-nubank w-[110px] p-3 rounded-full`}
+                            className={`bg-nubank w-28 p-2 rounded-full justify-center items-center`}
                         >
-                            <Text className="font-roboto-semiBold text-white ml-2">
+                            <Text className="font-roboto-semiBold text-white text-xl">
                                 Conhecer
                             </Text>
                         </View>

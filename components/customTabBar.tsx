@@ -67,7 +67,7 @@ const GetIcon = ({
 
 const ITEM_WIDTH = Platform.OS === 'ios' ? 70 : 60; // largura do botão
 const { width } = Dimensions.get('window'); // largura da tela
-const TAB_BAR_WIDTH = width * (Platform.OS === 'ios' ? 0.69 : 0.66); // largura da TabBar
+const TAB_BAR_WIDTH = width * (Platform.OS === 'ios' ? 0.687 : 0.66); // largura da TabBar
 const ITEM_SLOT_WIDTH = TAB_BAR_WIDTH / 4; // quantidade de abas
 export default function CustomTabBar({ state, navigation, descriptors }: any) {
     const activeIndex = state.index;
