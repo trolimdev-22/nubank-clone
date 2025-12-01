@@ -62,4 +62,4 @@ Este projeto foi desenvolvido para dominar o ecossistema **Expo** e as bibliotec
     ```
 
 ---
-Desenvolvido por [Thiago Rolim](https://github.com/trolimdev-22)
+Desenvolvido por 🚀 [Thiago Rolim](https://github.com/trolimdev-22)
